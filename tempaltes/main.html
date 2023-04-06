@@ -11,7 +11,7 @@
         }
 
         body {
-            background: url("./background_photo.jpg");
+            background: url("/static/images/background_photo.jpg") no-repeat fixed;
             background-size:100% 100%;
             opacity: 0.7;
         }
@@ -39,6 +39,7 @@
         }
 
         li a {
+            width: 200px;
             display: block;
             color: white;
             text-align: center;
@@ -46,42 +47,59 @@
             text-decoration: none;
         }
 
-        /*鼠标移动到选项上修改背景颜色 */
         li a:hover {
             background-color: #111;
         }
 
-        main {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .contents div {
-            border: #B3261E solid 1px;
-            width: 800px;
-            height: 100px;
-            border-radius: 6px;
-            margin: 15px;
-            /*padding: 10px;*/
-        }
-
-        .aside_box div{
-            width: 300px;
-            height: 100px;
-            border: #B3261E solid 1px;
-            border-radius: 6px;
+        /* 创建两列 */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 70%;
+            margin-left: 20px;
             margin-right: 10px;
-            margin-top: 15px;
+        }
+
+        /* 右侧栏 */
+        .rightcolumn {
+            float: right;
+            width: 25%;
+            margin-right: 20px;
+            margin-left: 10px;
+        }
+
+        /* 图像部分 */
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+        }
+
+        /* 文章卡片效果 */
+        .card {
+            background-color: white;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        main:after {
+            content: "";
+            display: table;
+            clear: both;
         }
 
         footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
+            padding: 20px;
             text-align: center;
-            background-color: #66d9ef;
-            opacity: 0.5;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* 响应式布局 - 屏幕尺寸小于 800px 时，两列布局改为上下布局 */
+        @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
         }
 
     </style>
@@ -103,19 +121,38 @@
 </nav>
 <!--主页内容-->
 <main>
-    <div class="contents">
-        <div><a href="#">我是内容</a></div>
-        <div><a href="#">我是内容</a></div>
-        <div><a href="#">我是内容</a></div>
-        <div><a href="#">我是内容</a></div>
-        <div><a href="#">我是内容</a></div>
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>文章标题</h2>
+            <h5>2019 年 4 月 17日</h5>
+            <div class="fakeimg" style="height:200px;">图片</div>
+            <p>一些文本...</p>
+            <p>菜鸟教程 - 学的不仅是技术，更是梦想！菜鸟教程 - 学的不仅是技术，更是梦想！菜鸟教程 - 学的不仅是技术，更是梦想！菜鸟教程 - 学的不仅是技术，更是梦想！</p>
+        </div>
+        <div class="card">
+            <h2>文章标题</h2>
+            <h5>2019 年 4 月 17日</h5>
+            <div class="fakeimg" style="height:200px;">图片</div>
+            <p>一些文本...</p>
+            <p>菜鸟教程 - 学的不仅是技术，更是梦想！菜鸟教程 - 学的不仅是技术，更是梦想！菜鸟教程 - 学的不仅是技术，更是梦想！菜鸟教程 - 学的不仅是技术，更是梦想！</p>
+        </div>
     </div>
-<!--侧边栏-->
-    <div class="aside_box">
-        <div><a href="#">我是标题栏</a></div>
-        <div><a href="#">我是标题栏</a></div>
-        <div><a href="#">我是标题栏</a></div>
-        <div><a href="#">我是标题栏</a></div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>关于我</h2>
+            <div class="fakeimg" style="height:100px;">图片</div>
+            <p>关于我的一些信息..</p>
+        </div>
+        <div class="card">
+            <h3>热门文章</h3>
+            <div class="fakeimg"><p>图片</p></div>
+            <div class="fakeimg"><p>图片</p></div>
+            <div class="fakeimg"><p>图片</p></div>
+        </div>
+        <div class="card">
+            <h3>关注我</h3>
+            <p>一些文本...</p>
+        </div>
     </div>
 </main>
 <!--页脚-->
